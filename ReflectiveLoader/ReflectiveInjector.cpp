@@ -44,6 +44,8 @@ BOOL ReflectiveInjector::ApcInject(DWORD dwPid, DWORD dwTid, LPCWSTR lpModuleNam
             break;
         ProcessHelper->QueueUserAPCT(hThread, ReflectiveLoaderAddr, ParamAddr);
 
+        CloseHandle(hThread);
+
     } while (0);
 
     if (hProcess)
